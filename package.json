@@ -1,0 +1,31 @@
+{
+  "name": "nodejs-horoscope",
+  "version": "1.0.0",
+  "description": "Converts a DOB in 'mmddyyy' format to a horoscope sign.",
+  "keywords": [
+    "horoscope",
+    "zodiac",
+    "dob",
+    "converter"
+  ],
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyen365-org/nodejs-horoscope.git"
+  },
+  "author": "nguyen365",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nguyen365-org/nodejs-horoscope/issues"
+  },
+  "homepage": "https://github.com/nguyen365-org/nodejs-horoscope#readme",
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
+}

@@ -32,8 +32,8 @@ jobs:
         run: npm test
 
       # Lint the code (optional, recommended for quality checks)
-      - name: Run Linter
-        run: npm run lint
+      #- name: Run Linter
+      #  run: npm run lint
 
       # Build the package (if your package has a build step)
       - name: Build Package

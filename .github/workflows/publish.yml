@@ -1,21 +1,46 @@
-name: Publish
+name: Publish Node.js Package
+
 on:
   release:
-    types: [ created ]
+    types: [created]
   workflow_dispatch:
+
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    permissions: 
-        contents: read
-        packages: write     
+    permissions:
+      contents: read
+      packages: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      # Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com/'
-      - run: npm ci
-      - run: npm publish
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # Run tests
+      - name: Run Tests
+        run: npm test
+
+      # Lint the code (optional, recommended for quality checks)
+      - name: Run Linter
+        run: npm run lint
+
+      # Build the package (if your package has a build step)
+      - name: Build Package
+        run: npm run build
+
+      # Publish to GitHub Package Registry
+      - name: Publish to GitHub Package Registry
+        run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

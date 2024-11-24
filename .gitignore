@@ -1,3 +1,6 @@
+#npm files
+.npmrc
+
 # Logs
 logs
 *.log
